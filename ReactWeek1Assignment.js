@@ -12,10 +12,12 @@ class Bootcamp {
         this.students = [];
     }
     registerStudent(student) {
-        if (!this.students.includes(student.email)) {
+        if (this.students.filter(s => s.email === student.email).length) {
+            console.log(`This student is already registered`)
+        } else {
             this.students.push(student);
+            console.log(`Registering ${student.email} to the bootcamp Web Dev Fundamentals.`)
         }
-        console.log(`Registering ${student.email} to the bootcamp Web Dev Fundamentals.`)
         return this.students;
     }
 }
